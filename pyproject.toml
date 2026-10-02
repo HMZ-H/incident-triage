@@ -1,0 +1,21 @@
+[project]
+name = "incident-triage"
+description = "Multi-turn incident investigation over MCP tools. The evidence is hidden behind correct tool use, and the trajectory is scored, not just the answer."
+tags = ["mcp", "tool-use", "multi-turn", "debugging", "devops", "sre", "agentic", "eval", "train"]
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "verifiers>=0.3.1",
+    "fastmcp",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["incident_triage.py", "pyproject.toml"]
+
+[tool.verifiers.eval]
+num_examples = 1
+rollouts_per_example = 5
